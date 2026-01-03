@@ -1,0 +1,1353 @@
+/* ============================================
+   VARIABILI CSS PERSONALIZZABILI
+   ============================================ */
+:root {
+    /* Colori principali - Modificabili per cambiare lo stile */
+    --primary-color: #ff0000;
+    --secondary-color: #1a1a1a;
+    --accent-color: #ffd700;
+    --text-color: #ffffff;
+    --text-dark: #333333;
+    --bg-color: #0a0a0a;
+    --bg-light: #1f1f1f;
+    --bg-card: #2a2a2a;
+    
+    /* Font */
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-heading: 'Arial Black', sans-serif;
+    
+    /* Spaziatura */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+    
+    /* Transizioni */
+    --transition-speed: 0.3s;
+}
+
+/* ============================================
+   RESET E STILI BASE
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ============================================
+   HEADER E NAVIGAZIONE
+   ============================================ */
+header {
+    background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(26,26,26,0.9) 100%);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(255, 0, 0, 0.3);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: all var(--transition-speed);
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width var(--transition-speed);
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Pulsanti di selezione lingua */
+.language-selector {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.lang-btn {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--text-color);
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    transition: all var(--transition-speed);
+    border-radius: 3px;
+}
+
+.lang-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    transform: scale(1.05);
+}
+
+.lang-btn.active {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23000000"/><path fill="%23ff0000" opacity="0.1" d="M0 400 Q300 200 600 400 T1200 400 V800 H0 Z"/></svg>');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, transparent 0%, rgba(255,0,0,0.1) 100%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+}
+
+.hero h1 {
+    font-size: 5rem;
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+    animation: slideDown 1s ease-out;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    animation: slideUp 1s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+}
+
+/* ============================================
+   SEZIONI GENERALI
+   ============================================ */
+.section {
+    padding: var(--spacing-xl) 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-family: var(--font-heading);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.8;
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: var(--spacing-lg);
+}
+
+.card {
+    background-color: var(--bg-card);
+    padding: 2rem;
+    border-radius: 10px;
+    transition: all var(--transition-speed);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    border-radius: 10px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity var(--transition-speed);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 40px rgba(255, 0, 0, 0.3);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-family: var(--font-heading);
+}
+
+.card p {
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+/* ============================================
+   MEMBRI DELLA BAND
+   ============================================ */
+.band-members {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-top: var(--spacing-lg);
+}
+
+.member {
+    text-align: center;
+    background-color: var(--bg-card);
+    padding: 2rem;
+    border-radius: 10px;
+    transition: all var(--transition-speed);
+}
+
+.member:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 40px rgba(255, 0, 0, 0.4);
+}
+
+.member-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    border: 4px solid var(--primary-color);
+}
+
+.member h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.member .role {
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.member p {
+    opacity: 0.85;
+    line-height: 1.6;
+}
+
+/* ============================================
+   ALBUM E MUSICA
+   ============================================ */
+.albums {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: var(--spacing-lg);
+}
+
+.album {
+    background-color: var(--bg-card);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all var(--transition-speed);
+    border: 2px solid var(--bg-light);
+}
+
+.album:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+    box-shadow: 0 15px 50px rgba(255, 0, 0, 0.4);
+}
+
+.album-cover {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, var(--primary-color), var(--bg-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.album-info {
+    padding: 2rem;
+}
+
+.album-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.album-year {
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.album-info p {
+    opacity: 0.85;
+    margin-bottom: 1.5rem;
+}
+
+/* ============================================
+   TOUR DATES
+   ============================================ */
+.tour-table {
+    width: 100%;
+    margin-top: var(--spacing-lg);
+    border-collapse: collapse;
+    background-color: var(--bg-card);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tour-table th {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 1.5rem;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.tour-table td {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--bg-light);
+}
+
+.tour-table tr:hover {
+    background-color: var(--bg-light);
+}
+
+.tour-table .btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+}
+
+.soldout {
+    background-color: #666;
+    color: #ccc;
+    padding: 0.5rem 1.5rem;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* ============================================
+   FORM DI CONTATTO
+   ============================================ */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: var(--spacing-lg);
+}
+
+.contact-form {
+    background-color: var(--bg-card);
+    padding: 3rem;
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--bg-light);
+    border: 2px solid transparent;
+    border-radius: 5px;
+    color: var(--text-color);
+    font-family: var(--font-main);
+    transition: all var(--transition-speed);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-info {
+    background-color: var(--bg-card);
+    padding: 3rem;
+    border-radius: 10px;
+}
+
+.contact-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.info-item {
+    margin-bottom: 2rem;
+}
+
+.info-item strong {
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Link telefonici cliccabili */
+.info-item a[href^="tel:"] {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: all var(--transition-speed);
+    display: inline-block;
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
+}
+
+.info-item a[href^="tel:"]:hover {
+    color: var(--primary-color);
+    background-color: rgba(255, 215, 0, 0.1);
+    transform: translateX(5px);
+}
+
+.info-item a[href^="tel:"]:before {
+    content: "📞 ";
+}
+
+/* Link email cliccabili */
+.info-item a[href^="mailto:"] {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: all var(--transition-speed);
+    display: inline-block;
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
+}
+
+.info-item a[href^="mailto:"]:hover {
+    color: var(--primary-color);
+    background-color: rgba(255, 215, 0, 0.1);
+    transform: translateX(5px);
+}
+
+.info-item a[href^="mailto:"]:before {
+    content: "✉️ ";
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.social-link {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--bg-light), var(--bg-card));
+    color: var(--text-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all var(--transition-speed);
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    font-family: Arial, sans-serif;
+}
+
+.social-link:hover {
+    transform: scale(1.2) rotate(5deg);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-color: var(--accent-color);
+    color: var(--bg-color);
+}
+
+/* Stili specifici per icone social nella home */
+.card .social-link {
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+    background-color: var(--secondary-color);
+    padding: var(--spacing-md) 5%;
+    text-align: center;
+    margin-top: var(--spacing-xl);
+    border-top: 3px solid var(--primary-color);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.footer-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: all var(--transition-speed);
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .tour-table {
+        font-size: 0.9rem;
+    }
+    
+    .tour-table th,
+    .tour-table td {
+        padding: 1rem;
+    }
+    
+    .section {
+        padding: var(--spacing-md) 5%;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+/* ============================================
+   MUSIC PLAYER
+   ============================================ */
+.music-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--bg-card), var(--secondary-color));
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 10px 40px rgba(255, 0, 0, 0.4);
+    z-index: 999;
+    border: 2px solid var(--primary-color);
+    backdrop-filter: blur(10px);
+    transition: all var(--transition-speed);
+}
+
+.music-player:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(255, 0, 0, 0.6);
+}
+
+.player-icon {
+    font-size: 2rem;
+    animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 120px;
+}
+
+.track-title {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.track-subtitle {
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.control-btn {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--text-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all var(--transition-speed);
+}
+
+.control-btn:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.control-btn:active {
+    transform: scale(0.95);
+}
+
+.volume-slider {
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, var(--bg-light) 0%, var(--primary-color) 100%);
+    outline: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    border: 2px solid var(--text-color);
+    transition: all var(--transition-speed);
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    border: 2px solid var(--text-color);
+    transition: all var(--transition-speed);
+}
+
+.volume-slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+/* Responsive per il player */
+@media (max-width: 768px) {
+    .music-player {
+        bottom: 10px;
+        right: 10px;
+        padding: 0.8rem 1rem;
+        border-radius: 40px;
+    }
+    
+    .player-info {
+        display: none;
+    }
+    
+    .player-icon {
+        font-size: 1.5rem;
+    }
+    
+    .control-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    .volume-slider {
+        width: 60px;
+    }
+}
+
+/* ============================================
+   MODAL (POP-UP) PER PRIVACY E TERMINI
+   ============================================ */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.modal-content {
+    background-color: var(--bg-card);
+    padding: 3rem;
+    border-radius: 10px;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.5);
+    border: 2px solid var(--primary-color);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-family: var(--font-heading);
+    text-align: center;
+}
+
+.modal-content h3 {
+    color: var(--accent-color);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.modal-content p,
+.modal-content ul {
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.modal-content ul {
+    padding-left: 2rem;
+}
+
+.modal-content li {
+    margin-bottom: 0.5rem;
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    line-height: 1;
+}
+
+.close-modal:hover {
+    color: var(--primary-color);
+    transform: rotate(90deg);
+}
+
+/* Stile scrollbar per modal */
+.modal-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: var(--bg-light);
+    border-radius: 5px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+/* ============================================
+   ANIMAZIONI AGGIUNTIVE
+   ============================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+/* ============================================
+   OTTIMIZZAZIONI MOBILE AVANZATE
+   ============================================ */
+@media (max-width: 480px) {
+    /* Hero section mobile */
+    .hero h1 {
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        padding: 0.8rem 2rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Navigazione mobile hamburger-friendly */
+    nav {
+        flex-direction: column;
+        padding: 0.5rem 3%;
+        gap: 0.5rem;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .nav-links a {
+        padding: 0.3rem 0.8rem;
+    }
+    
+    .language-selector {
+        margin-top: 0.5rem;
+    }
+    
+    /* Sezioni più compatte */
+    .section {
+        padding: var(--spacing-sm) 3%;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    /* Cards responsive */
+    .cards-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .card {
+        padding: 1.5rem;
+    }
+    
+    /* Membri band stack verticale */
+    .band-members {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .member-image {
+        width: 150px;
+        height: 150px;
+        font-size: 3rem;
+    }
+    
+    /* Album stack */
+    .albums {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .album-cover {
+        height: 250px;
+        font-size: 4rem;
+    }
+    
+    /* Tabella tour scrollabile orizzontalmente */
+    .tour-table {
+        font-size: 0.8rem;
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .tour-table thead,
+    .tour-table tbody,
+    .tour-table tr {
+        display: block;
+    }
+    
+    .tour-table thead {
+        display: none;
+    }
+    
+    .tour-table tr {
+        margin-bottom: 1rem;
+        border: 2px solid var(--primary-color);
+        border-radius: 8px;
+        padding: 1rem;
+    }
+    
+    .tour-table td {
+        display: block;
+        text-align: left;
+        padding: 0.5rem 0;
+        border: none;
+    }
+    
+    .tour-table td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: var(--accent-color);
+        display: inline-block;
+        width: 100px;
+    }
+    
+    .tour-table .btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+    
+    /* Form contatti mobile */
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .contact-form,
+    .contact-info {
+        padding: 1.5rem;
+    }
+    
+    .contact-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .info-item {
+        margin-bottom: 1.8rem;
+        padding: 1rem;
+        background-color: rgba(255, 0, 0, 0.05);
+        border-radius: 8px;
+        border-left: 3px solid var(--primary-color);
+    }
+    
+    .info-item strong {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .info-item p {
+        margin: 0.5rem 0;
+        font-size: 0.95rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px; /* Previene zoom iOS */
+    }
+    
+    /* Social links più grandi su mobile */
+    .social-link {
+        width: 55px;
+        height: 55px;
+        font-size: 2rem;
+    }
+    
+    /* Footer mobile */
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Modal mobile */
+    .modal {
+        padding: 1rem;
+    }
+    
+    .modal-content {
+        padding: 2rem 1.5rem;
+        max-height: 85vh;
+        font-size: 0.9rem;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .modal-content h3 {
+        font-size: 1.2rem;
+        margin-top: 1.5rem;
+    }
+    
+    .close-modal {
+        font-size: 2rem;
+        top: 0.5rem;
+        right: 1rem;
+    }
+    
+    /* Mappa Leaflet mobile */
+    #tourMap {
+        height: 400px;
+        border-radius: 5px;
+    }
+    
+    /* Info items più leggibili */
+    .info-item {
+        margin-bottom: 1.5rem;
+    }
+    
+    .info-item a[href^="tel:"] {
+        font-size: 1.1rem;
+        padding: 0.8rem 1rem;
+        display: block;
+        text-align: center;
+        background-color: rgba(255, 215, 0, 0.2);
+        border-radius: 8px;
+        margin-top: 0.5rem;
+        border: 2px solid var(--accent-color);
+    }
+    
+    /* Music player mobile */
+    .music-player {
+        width: 95%;
+        bottom: 10px;
+        left: 2.5%;
+        padding: 0.8rem;
+    }
+    
+    .track-title {
+        font-size: 0.8rem;
+    }
+    
+    .track-subtitle {
+        font-size: 0.7rem;
+    }
+    
+    .control-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    .volume-slider {
+        width: 60px;
+    }
+    
+    /* Pulsanti più grandi e touch-friendly */
+    .btn {
+        min-height: 44px; /* Standard iOS touch target */
+        touch-action: manipulation;
+    }
+    
+    /* Previeni zoom accidentale */
+    body {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+    }
+}
+
+/* ============================================
+   OTTIMIZZAZIONI LANDSCAPE MOBILE
+   ============================================ */
+@media (max-width: 896px) and (orientation: landscape) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 8rem 2rem 4rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    nav {
+        padding: 0.5rem 3%;
+    }
+    
+    .section {
+        padding: var(--spacing-md) 3%;
+    }
+    
+    .music-player {
+        width: 60%;
+        left: 20%;
+    }
+}
+
+/* ============================================
+   TOUCH DEVICE SPECIFIC
+   ============================================ */
+@media (hover: none) and (pointer: coarse) {
+    /* Rimuovi effetti hover su touch devices */
+    .card:hover::before {
+        opacity: 0;
+    }
+    
+    /* Migliora feedback touch */
+    .btn:active {
+        transform: scale(0.95);
+    }
+    
+    .social-link:active {
+        transform: scale(0.9);
+    }
+    
+    .nav-links a:active {
+        background-color: rgba(255, 0, 0, 0.2);
+    }
+    
+    /* Link più facili da cliccare */
+    .tour-table a,
+    .footer-links a {
+        padding: 0.8rem;
+        margin: 0.2rem;
+    }
+    
+    .control-btn:active {
+        transform: scale(0.85);
+    }
+}
