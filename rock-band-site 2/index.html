@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- Meta tags per HTML5 moderno -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thunder Rocks - Rock band italiana con energia esplosiva">
+    <meta name="keywords" content="rock, band, musica, concerti, heavy metal">
+    <meta name="author" content="Thunder Rocks">
+    
+    <title>Thunder Rocks - Home</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <!-- Link al CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- ============================================
+         HEADER E NAVIGAZIONE
+         ============================================ -->
+    <header>
+        <nav>
+            <!-- Logo della band -->
+            <div class="logo">⚡ THUNDER ROCKS</div>
+            
+            <!-- Menu di navigazione -->
+            <ul class="nav-links">
+                <li><a href="index.html" data-translate="nav_home">Home</a></li>
+                <li><a href="band.html" data-translate="nav_band">Band</a></li>
+                <li><a href="music.html" data-translate="nav_music">Musica</a></li>
+                <li><a href="tour.html" data-translate="nav_tour">Tour</a></li>
+                <li><a href="contact.html" data-translate="nav_contact">Contatti</a></li>
+                
+                <!-- Selettore lingua -->
+                <li class="language-selector">
+                    <button class="lang-btn" data-lang="it">IT</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ============================================
+         HERO SECTION (Sezione principale)
+         ============================================ -->
+    <section class="hero">
+        <div class="hero-content">
+            <!-- Titolo principale -->
+            <h1 data-translate="home_hero_title">Thunder Rocks</h1>
+            
+            <!-- Sottotitolo -->
+            <p data-translate="home_hero_subtitle">L'energia del rock che scuote l'anima</p>
+            
+            <!-- Call to action button -->
+            <a href="#about" class="btn" data-translate="home_hero_button">Scopri di più</a>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SEZIONE CHI SIAMO
+         ============================================ -->
+    <section id="about" class="section">
+        <h2 class="section-title" data-translate="home_about_title">Chi Siamo</h2>
+        
+        <!-- Descrizione della band -->
+        <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.2rem; line-height: 1.8;" 
+           data-translate="home_about_text">
+            Thunder Rocks è una band che fonde rock classico e moderne sonorità heavy metal. 
+            Nata nel 2018, la band ha conquistato il pubblico con la sua energia esplosiva e 
+            testi che parlano di libertà, passione e ribellione.
+        </p>
+    </section>
+
+    <!-- ============================================
+         SEZIONE ULTIME NOVITÀ
+         ============================================ -->
+    <section class="section" style="background-color: var(--bg-light);">
+        <h2 class="section-title" data-translate="home_latest_title">Ultime Novità</h2>
+        
+        <!-- Container per le card delle novità -->
+        <div class="cards-container">
+            <!-- Card 1: Nuovo Album -->
+            <div class="card">
+                <h3 data-translate="home_latest_album">Nuovo Album in Arrivo</h3>
+                <p data-translate="home_latest_album_text">
+                    Il nostro terzo album 'Electric Storm' sarà disponibile da marzo 2026!
+                </p>
+                <a href="music.html" class="btn" style="margin-top: 1rem; display: inline-block;" 
+                   data-translate="home_hero_button">Scopri di più</a>
+            </div>
+            
+            <!-- Card 2: Tour -->
+            <div class="card">
+                <h3 data-translate="home_latest_tour">Tour Europeo 2026</h3>
+                <p data-translate="home_latest_tour_text">
+                    Vieni a vederci dal vivo nelle principali città europee!
+                </p>
+                <a href="tour.html" class="btn" style="margin-top: 1rem; display: inline-block;" 
+                   data-translate="home_hero_button">Scopri di più</a>
+            </div>
+            
+            <!-- Card 3: Social Media (contenuto statico) -->
+            <div class="card">
+                <h3 data-translate="home_social_title">🎸 Seguici</h3>
+                <p data-translate="home_social_text">Resta aggiornato sulle nostre ultime news e contenuti esclusivi sui social media!</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem;">
+                    <a href="#" class="social-link" title="Facebook">f</a>
+                    <a href="#" class="social-link" title="Instagram">📸</a>
+                    <a href="#" class="social-link" title="Twitter">𝕏</a>
+                    <a href="#" class="social-link" title="YouTube">▶</a>
+                    <a href="#" class="social-link" title="Spotify">♫</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer>
+        <!-- Copyright -->
+        <p data-translate="footer_rights">© 2026 Thunder Rocks. Tutti i diritti riservati.</p>
+        
+        <!-- Link del footer -->
+        <div class="footer-links">
+            <a href="#" onclick="openPrivacyModal(); return false;" data-translate="footer_privacy">Privacy Policy</a>
+            <a href="#" onclick="openTermsModal(); return false;" data-translate="footer_terms">Termini di Servizio</a>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         MODAL PRIVACY POLICY
+         ============================================ -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('privacyModal')">&times;</span>
+            <h2>📋 Privacy Policy</h2>
+            
+            <p><strong>Data di entrata in vigore:</strong> 2 Gennaio 2026</p>
+            
+            <h3>1. Introduzione</h3>
+            <p>Thunder Rocks ("noi", "nostro") rispetta la tua privacy e si impegna a proteggere i tuoi dati personali. Questa Privacy Policy spiega come raccogliamo, usiamo e proteggiamo le tue informazioni quando visiti il nostro sito web.</p>
+            
+            <h3>2. Informazioni che Raccogliamo</h3>
+            <p>Possiamo raccogliere le seguenti informazioni:</p>
+            <ul>
+                <li>Nome e informazioni di contatto (email, numero di telefono)</li>
+                <li>Dati di navigazione (indirizzo IP, tipo di browser, pagine visitate)</li>
+                <li>Preferenze di lingua e altre impostazioni del sito</li>
+                <li>Informazioni fornite tramite form di contatto</li>
+            </ul>
+            
+            <h3>3. Come Utilizziamo le Tue Informazioni</h3>
+            <p>Utilizziamo le tue informazioni per:</p>
+            <ul>
+                <li>Rispondere alle tue richieste e comunicazioni</li>
+                <li>Inviare newsletter e aggiornamenti (solo con il tuo consenso)</li>
+                <li>Migliorare il nostro sito web e i nostri servizi</li>
+                <li>Analizzare l'utilizzo del sito per scopi statistici</li>
+            </ul>
+            
+            <h3>4. Cookie</h3>
+            <p>Il nostro sito utilizza cookie per migliorare l'esperienza utente. I cookie sono piccoli file di testo memorizzati sul tuo dispositivo. Utilizziamo:</p>
+            <ul>
+                <li><strong>Cookie essenziali:</strong> necessari per il funzionamento del sito</li>
+                <li><strong>Cookie di preferenza:</strong> per ricordare le tue impostazioni (es. lingua)</li>
+                <li><strong>Cookie analitici:</strong> per capire come gli utenti utilizzano il sito</li>
+            </ul>
+            
+            <h3>5. Condivisione dei Dati</h3>
+            <p>Non vendiamo, scambiamo o trasferiamo a terzi le tue informazioni personali identificabili, eccetto quando richiesto dalla legge o con il tuo esplicito consenso.</p>
+            
+            <h3>6. Sicurezza dei Dati</h3>
+            <p>Implementiamo misure di sicurezza appropriate per proteggere le tue informazioni da accesso non autorizzato, alterazione o distruzione.</p>
+            
+            <h3>7. I Tuoi Diritti</h3>
+            <p>Hai il diritto di:</p>
+            <ul>
+                <li>Accedere ai tuoi dati personali</li>
+                <li>Richiedere la correzione di dati inesatti</li>
+                <li>Richiedere la cancellazione dei tuoi dati</li>
+                <li>Opporti al trattamento dei tuoi dati</li>
+                <li>Richiedere la portabilità dei dati</li>
+            </ul>
+            
+            <h3>8. Link Esterni</h3>
+            <p>Il nostro sito può contenere link a siti web esterni. Non siamo responsabili per le pratiche di privacy di questi siti.</p>
+            
+            <h3>9. Modifiche alla Privacy Policy</h3>
+            <p>Ci riserviamo il diritto di modificare questa Privacy Policy in qualsiasi momento. Le modifiche saranno pubblicate su questa pagina.</p>
+            
+            <h3>10. Contatti</h3>
+            <p>Per domande riguardo questa Privacy Policy, contattaci a: <strong>privacy@thunderrocks.com</strong></p>
+        </div>
+    </div>
+
+    <!-- ============================================
+         MODAL TERMINI DI SERVIZIO
+         ============================================ -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('termsModal')">&times;</span>
+            <h2>📜 Termini di Servizio</h2>
+            
+            <p><strong>Data di entrata in vigore:</strong> 2 Gennaio 2026</p>
+            
+            <h3>1. Accettazione dei Termini</h3>
+            <p>Accedendo e utilizzando questo sito web, accetti di essere vincolato da questi Termini di Servizio e dalla nostra Privacy Policy. Se non accetti questi termini, non utilizzare il sito.</p>
+            
+            <h3>2. Utilizzo del Sito</h3>
+            <p>Ti impegni a utilizzare il sito solo per scopi legittimi e in conformità con tutte le leggi applicabili. È vietato:</p>
+            <ul>
+                <li>Utilizzare il sito in modo da danneggiare, disabilitare o compromettere il server</li>
+                <li>Tentare di accedere in modo non autorizzato al sito o ai suoi sistemi</li>
+                <li>Utilizzare il sito per trasmettere virus o codice dannoso</li>
+                <li>Violare i diritti di proprietà intellettuale di Thunder Rocks o di terzi</li>
+                <li>Utilizzare il sito per scopi commerciali senza autorizzazione</li>
+            </ul>
+            
+            <h3>3. Proprietà Intellettuale</h3>
+            <p>Tutti i contenuti del sito, inclusi testi, grafica, loghi, immagini, audio e software, sono di proprietà di Thunder Rocks o dei suoi licenziatari e sono protetti dalle leggi sul copyright.</p>
+            
+            <h3>4. Contenuti Generati dagli Utenti</h3>
+            <p>Inviando contenuti tramite il form di contatto o altri mezzi, ci concedi una licenza non esclusiva, mondiale e gratuita per utilizzare, riprodurre e modificare tali contenuti.</p>
+            
+            <h3>5. Acquisto di Biglietti e Merchandise</h3>
+            <p>L'acquisto di biglietti per concerti o merchandise è soggetto a termini e condizioni aggiuntivi. Tutti gli acquisti sono finali e non rimborsabili, salvo diversamente indicato o richiesto dalla legge.</p>
+            
+            <h3>6. Limitazione di Responsabilità</h3>
+            <p>Thunder Rocks non sarà responsabile per:</p>
+            <ul>
+                <li>Danni diretti, indiretti, incidentali o consequenziali derivanti dall'uso del sito</li>
+                <li>Interruzioni o errori del servizio</li>
+                <li>Perdita di dati o informazioni</li>
+                <li>Contenuti di siti web di terze parti collegati</li>
+            </ul>
+            
+            <h3>7. Indennizzo</h3>
+            <p>Accetti di indennizzare e tenere indenne Thunder Rocks da qualsiasi reclamo o richiesta derivante dal tuo uso del sito o dalla violazione di questi termini.</p>
+            
+            <h3>8. Modifiche al Servizio</h3>
+            <p>Ci riserviamo il diritto di modificare, sospendere o interrompere qualsiasi parte del sito in qualsiasi momento senza preavviso.</p>
+            
+            <h3>9. Modifiche ai Termini</h3>
+            <p>Possiamo aggiornare questi Termini di Servizio periodicamente. L'uso continuato del sito dopo le modifiche costituisce accettazione dei nuovi termini.</p>
+            
+            <h3>10. Legge Applicabile</h3>
+            <p>Questi termini sono regolati dalle leggi italiane. Qualsiasi controversia sarà soggetta alla giurisdizione esclusiva dei tribunali di Lucca, Italia.</p>
+            
+            <h3>11. Divisibilità</h3>
+            <p>Se una disposizione di questi termini viene ritenuta non valida, le restanti disposizioni rimarranno in pieno vigore.</p>
+            
+            <h3>12. Contatti</h3>
+            <p>Per domande riguardo questi Termini di Servizio, contattaci a: <strong>legal@thunderrocks.com</strong></p>
+        </div>
+    </div>
+
+    <!-- ============================================
+         SCRIPT JAVASCRIPT
+         ============================================ -->
+    <!-- Script per i modal -->
+    <script src="js/modals.js"></script>
+    <!-- Script per le traduzioni -->
+    <script src="js/translations.js"></script>
+    <!-- Script per il player musicale -->
+    <script src="js/music-player.js"></script>
+    <!-- Script per Easter Egg -->
+    <script src="js/easter-egg.js"></script>
+</body>
+</html>
